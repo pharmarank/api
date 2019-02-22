@@ -15,6 +15,8 @@ Cette interface permet de récupérer la liste des marques.
 GET /open-api/brand.list
 ```
 
+Exemple de code PHP :
+
 ```php
 $client = new \GuzzleHttp\Client(['base_uri' => 'https://app.pharmarank.fr']);
 $response = $client->get('/open-api/brand.list', [
@@ -43,29 +45,52 @@ Cette interface permet d'envoyer les produits sous la forme d'un tableau JSON
 GET /open-api/product.list
 ```
 
+Exemple de code PHP :
+
 ```php
 $client = new \GuzzleHttp\Client(['base_uri' => 'https://app.pharmarank.fr']);
 $data = [
   [
-    "brand_id" => 1,
+    "brand_id" => 55,
     "name" => "Doliprane 1000mg",
-    "image" => "http://votredomaine.com/doliprane.jpg",
-    "description" => "Ici la description",
-    "cip_7" => "CIP7",
-    "cip_13" => "CIP13",
-    "container" => "Contenant",
-    "composition" => "Composition",
-    "dosage" => "",
+    "image" => "https://votredomaine.fr/doliprane.jpg",
+    "cip_7" => null",
+    "cip_13" => "3400935955838",
+    "container" => "boîte de 8",
   ],
 ];
 ```
 
 ## Lister les produits
 
-Cette interface permet de récupérer la liste des marques.
+Cette interface permet de récupérer la liste des produits.
+
 
 ```bash
 GET /open-api/product.list
 ```
 
+Exemple de code PHP :
+
+```php
+$client = new \GuzzleHttp\Client(['base_uri' => 'https://app.pharmarank.fr']);
+$response = $client->get('/open-api/product.list', [
+   'headers' => ['X-Auth-Token' => 'my-token'],
+]);
+$data = json_decode($response->getBody()->getContents());
+print_r($data);
+```
+
+```
+  [
+    "brand_id" => 1,
+    "name" => "Doliprane 1000mg",
+    "cip_7" => null,
+    "cip_13" => "3400935955838",
+    "dosage" => "boîte de 8",
+  ],
+  [
+  ...
+  ]
+```
 
