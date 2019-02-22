@@ -39,7 +39,8 @@ print_r($data);
 
 ## Envoyer les produits
 
-Cette interface permet d'envoyer les produits sous la forme d'un tableau JSON
+Cette interface permet d'envoyer les produits sous la forme d'un tableau JSON. Le champ `brand_id` doit correspondre à une marque récupéré avec l'API. 
+
 
 ```bash
 GET /open-api/product.list
@@ -82,15 +83,15 @@ print_r($data);
 ```
 
 ```
-  [
-    "brand_id" => 1,
-    "name" => "Doliprane 1000mg",
-    "cip_7" => null,
-    "cip_13" => "3400935955838",
-    "dosage" => "boîte de 8",
-  ],
-  [
-  ...
-  ]
+[
+ "brand_id" => 1,
+ "name" => "Doliprane 1000mg",
+ "cip_7" => null,
+ "cip_13" => "3400935955838",
+ "dosage" => "boîte de 8",
+],
+[
+...
+]
 ```
 
